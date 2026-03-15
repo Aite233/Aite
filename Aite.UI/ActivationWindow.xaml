@@ -1,0 +1,66 @@
+<Window x:Class="Aite.WPF.ActivationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aite.WPF"
+        mc:Ignorable="d"
+        Title="Aite 激活"
+        Height="400"
+        Width="600"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent">
+    <Border Background="#FFFFFF" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="24" Padding="0">
+        <Grid>
+            <Grid.Clip>
+                <RectangleGeometry RadiusX="24" RadiusY="24" Rect="0,0,600,400"/>
+            </Grid.Clip>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <!-- 标题栏 -->
+            <Grid Grid.Row="0" Background="#FFFFFF" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- 标题和图标 -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,0,0">
+                    <Path Width="12" Height="12" Fill="#0078D4" Data="M0,6 L6,0 L12,6 L6,12 Z"/>
+                    <TextBlock Text="Aite 激活" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="#1A1A1A"/>
+                </StackPanel>
+                
+                <!-- 关闭按钮 -->
+                <Button Grid.Column="1" Width="48" Height="48" Background="Transparent" BorderThickness="0" Foreground="#1A1A1A" Click="CloseButton_Click">
+                    <TextBlock Text="×" FontSize="16" FontWeight="Bold"/>
+                </Button>
+            </Grid>
+            
+            <!-- 内容区域 -->
+            <Grid Grid.Row="1" Margin="40,20,40,40" Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0" Text="请输入激活码" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20" Foreground="#1A1A1A"/>
+                <TextBlock Grid.Row="1" Text="您需要输入有效的激活码才能使用 Aite 应用程序" FontSize="14" HorizontalAlignment="Center" Margin="0,0,0,30" Foreground="#666666" TextWrapping="Wrap" TextAlignment="Center"/>
+                
+                <TextBox x:Name="ActivationCodeTextBox" Grid.Row="2" Width="300" Height="40" FontSize="14" HorizontalAlignment="Center" Margin="0,0,0,20" Background="Transparent" BorderBrush="#E2E8F0" BorderThickness="1" Padding="10"/>
+                <TextBlock x:Name="ErrorTextBlock" Grid.Row="3" FontSize="12" HorizontalAlignment="Center" Margin="0,0,0,20" Foreground="#E53935" TextWrapping="Wrap" TextAlignment="Center"/>
+                
+                <Button x:Name="ActivateButton" Grid.Row="4" Width="200" Height="40" Background="#0078D4" Foreground="White" BorderThickness="0" FontSize="14" FontWeight="SemiBold" Click="ActivateButton_Click" HorizontalAlignment="Center">
+                    激活
+                </Button>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,24 @@
+﻿﻿using Codexus.Interceptors;
+
+namespace Aite.Core.Entities.NEL;
+
+public class RunningProxy : EntityProxyBase {
+    
+    public required Interceptor Interceptor { get; init; }
+
+    /**
+     * 关闭服务
+     */
+    public void Shutdown()
+    {
+        Interceptor.ShutdownAsync();
+    }
+
+    /**
+     * 获取游戏昵称
+     */
+    public override string GetNickName()
+    {
+        return Interceptor.NickName;
+    }
+}

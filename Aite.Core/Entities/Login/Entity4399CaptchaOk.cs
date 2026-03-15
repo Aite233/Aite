@@ -1,0 +1,9 @@
+﻿using System.Text.Json.Serialization;
+
+namespace Aite.Core.Entities.Login;
+
+public class Entity4399CaptchaOk {
+    // [JsonPropertyName("id")] public string? Id { get; set; }
+    [JsonPropertyName("captcha")]
+    public string? Captcha { get; set; }
+}
